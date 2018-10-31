@@ -5,6 +5,11 @@ class CreateGossips < ActiveRecord::Migration[5.2]
       t.text :content
       t.string :anonymous_gossiper
 
+      t.references :users
+      t.references :tags
+      t.references :comments
+      t.references :likes
+
       t.timestamps
     end
   end

@@ -26,8 +26,16 @@ ActiveRecord::Schema.define(version: 2018_10_31_130124) do
     t.string "title"
     t.text "content"
     t.string "anonymous_gossiper"
+    t.bigint "users_id"
+    t.bigint "tags_id"
+    t.bigint "comments_id"
+    t.bigint "likes_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["comments_id"], name: "index_gossips_on_comments_id"
+    t.index ["likes_id"], name: "index_gossips_on_likes_id"
+    t.index ["tags_id"], name: "index_gossips_on_tags_id"
+    t.index ["users_id"], name: "index_gossips_on_users_id"
   end
 
   create_table "likes", force: :cascade do |t|
